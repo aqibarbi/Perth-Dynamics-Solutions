@@ -1,0 +1,544 @@
+    /* ============================================
+       GET A QUOTE PAGE — scoped styles
+       Uses site-wide tokens already defined in :root
+       ============================================ */
+         /* breadcrumb-bar */
+  .breadcrumb-bar {
+    background: var(--grad-warm-soft);
+    border-bottom: 1px solid var(--line);
+    padding: 0.85rem 1.5rem;
+        margin-top: 156px;
+  }
+
+  .breadcrumb {
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+
+  .breadcrumb ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.88rem;
+  }
+
+  .breadcrumb li {
+    display: flex;
+    align-items: center;
+  }
+
+  .breadcrumb li + li::before {
+    content: "\f105";
+    font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 0.65rem;
+    color: var(--ink-soft);
+    margin: 0 0.6rem;
+    opacity: 0.7;
+  }
+
+  .breadcrumb a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.25s var(--ease);
+  }
+
+  .breadcrumb a:hover {
+    color: var(--orange-deep);
+  }
+
+  .breadcrumb a i {
+    font-size: 0.8rem;
+    color: var(--orange);
+  }
+
+  .breadcrumb li[aria-current="page"] {
+    color: var(--navy-deep);
+    font-weight: 600;
+  }
+    
+    .pds-quote-page {
+        --radius-sm: 10px;
+        --radius-md: 18px;
+        --radius-lg: 28px;
+        background: var(--grad-warm-soft);
+        overflow-x: hidden;
+    }
+
+    .pds-quote-page * { box-sizing: border-box; }
+
+    .pds-quote-page .pds-container {
+        width: 100%;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+    }
+
+    .pds-quote-page h1,
+    .pds-quote-page h2,
+    .pds-quote-page h3 {
+        font-family: 'Fraunces', Georgia, serif;
+        color: var(--navy-deep);
+        line-height: 1.12;
+        margin: 0;
+        letter-spacing: -0.01em;
+    }
+
+    .pds-quote-page p {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        color: var(--ink-soft);
+        line-height: 1.65;
+        margin: 0;
+    }
+
+    /* ---------- HERO ---------- */
+    .pds-quote-hero {
+        position: relative;
+        background: var(--grad-navy-deep);
+        padding: clamp(4rem, 9vw, 6.5rem) 0 clamp(3rem, 7vw, 4.5rem);
+        color: var(--text-on-dark);
+    }
+
+    .pds-quote-hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0 0;
+        height: 120px;
+        background: linear-gradient(180deg, transparent 0%, var(--cream) 100%);
+        pointer-events: none;
+    }
+
+    .pds-quote-hero-inner {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: clamp(2rem, 5vw, 4rem);
+        align-items: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .pds-quote-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--orange);
+        background: rgba(243, 153, 90, 0.14);
+        border: 1px solid rgba(243, 153, 90, 0.3);
+        padding: 0.45rem 0.9rem;
+        border-radius: 999px;
+        margin-bottom: 1.25rem;
+    }
+
+    .pds-quote-eyebrow::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--orange);
+    }
+
+    .pds-quote-hero h1 {
+        color: var(--white);
+        font-size: clamp(2.1rem, 4.4vw, 3.2rem);
+        font-weight: 600;
+    }
+
+    .pds-quote-hero h1 em {
+        font-style: italic;
+        color: var(--orange);
+    }
+
+    .pds-quote-hero p.pds-hero-sub {
+        color: var(--text-on-dark-soft);
+        font-size: clamp(1rem, 1.4vw, 1.15rem);
+        margin-top: 1rem;
+        max-width: 46ch;
+    }
+
+    .pds-hero-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        margin-top: 2rem;
+    }
+
+    .pds-hero-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--text-on-dark-faint);
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 0.55rem 0.95rem;
+        border-radius: 999px;
+    }
+
+    .pds-hero-badge svg { width: 15px; height: 15px; flex-shrink: 0; stroke: var(--leaf); }
+
+    .pds-quote-hero-art {
+        position: relative;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        aspect-ratio: 4 / 3.2;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .pds-quote-hero-art img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .pds-hero-float-card {
+        position: absolute;
+        left: 1.1rem;
+        bottom: 1.1rem;
+        right: 1.1rem;
+        background: rgba(253, 250, 243, 0.92);
+        backdrop-filter: blur(8px);
+        border-radius: var(--radius-sm);
+        padding: 0.9rem 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        box-shadow: var(--shadow-md);
+    }
+
+    .pds-hero-float-card .pds-icon-circle {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--grad-orange-leaf);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .pds-hero-float-card .pds-icon-circle svg { width: 18px; height: 18px; stroke: var(--white); }
+
+    .pds-hero-float-card strong {
+        display: block;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 0.88rem;
+        color: var(--navy-deep);
+        font-weight: 700;
+    }
+
+    .pds-hero-float-card span {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 0.78rem;
+        color: var(--ink-soft);
+    }
+
+    /* ---------- PROCESS STRIP ---------- */
+    .pds-process {
+        padding: clamp(3rem, 6vw, 4.5rem) 0 0.5rem;
+    }
+
+    .pds-process-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+    }
+
+    .pds-process-card {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        padding: 1.75rem 1.5rem;
+        position: relative;
+        transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+
+    .pds-process-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .pds-process-num {
+        font-family: 'Fraunces', serif;
+        font-size: 2.1rem;
+        color: var(--orange);
+        opacity: 0.85;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .pds-process-card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; color: var(--navy-deep); }
+    .pds-process-card p { font-size: 0.92rem; }
+
+    /* ---------- FORM SECTION ---------- */
+    .pds-quote-form-section {
+        padding: clamp(3rem, 7vw, 5rem) 0;
+    }
+
+    .pds-form-shell {
+        display: grid;
+        grid-template-columns:1fr;
+        gap: 0;
+        background: var(--paper);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--line);
+    }
+
+    .pds-form-side {
+        background: var(--grad-navy-deep);
+        color: var(--text-on-dark);
+        padding: clamp(2.25rem, 4vw, 3rem);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .pds-form-side h2 {
+        color: var(--white);
+        font-size: clamp(1.5rem, 2.4vw, 1.85rem);
+        margin-bottom: 0.9rem;
+    }
+
+    .pds-form-side p { color: var(--text-on-dark-soft); font-size: 0.95rem; }
+
+    .pds-form-side-list {
+        list-style: none;
+        margin: 2rem 0 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .pds-form-side-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.7rem;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 0.9rem;
+        color: var(--text-on-dark-soft);
+    }
+
+    .pds-form-side-list svg {
+        width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px;
+        stroke: var(--leaf);
+    }
+
+
+
+    .pds-form-side-contact a {
+        color: var(--orange);
+        font-weight: 600;
+        text-decoration: none;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        transition: color 0.25s var(--ease);
+    }
+
+    .pds-form-side-contact a:hover { color: var(--white); }
+
+    .pds-form-main {
+        padding: clamp(2.25rem, 4vw, 3rem);
+    }
+
+    .pds-form-main-head {
+        margin-bottom: 1.5rem;
+    }
+
+    .pds-form-main-head h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .pds-form-main-head p { font-size: 0.9rem; }
+
+    /* Fluent Forms Pro visual alignment with theme tokens */
+    .pds-form-main .fluentform,
+    .pds-form-main .frm-fluent-form {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .pds-form-main .ff-el-form-control,
+    .pds-form-main select.ff-el-form-control,
+    .pds-form-main textarea.ff-el-form-control {
+        border: 1px solid var(--line) !important;
+        border-radius: var(--radius-sm) !important;
+        padding: 0.75rem 0.9rem !important;
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        color: var(--ink) !important;
+        background: var(--cream) !important;
+        transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease) !important;
+    }
+
+    .pds-form-main .ff-el-form-control:focus,
+    .pds-form-main select.ff-el-form-control:focus,
+    .pds-form-main textarea.ff-el-form-control:focus {
+        border-color: var(--orange) !important;
+        box-shadow: 0 0 0 3px rgba(243, 153, 90, 0.18) !important;
+        outline: none !important;
+    }
+
+    .pds-form-main .ff-el-input--label label,
+    .pds-form-main label.ff-el-form-check-label {
+        color: var(--navy-deep) !important;
+        font-weight: 600 !important;
+        font-size: 0.9rem !important;
+    }
+
+    .pds-form-main .ff-btn,
+    .pds-form-main button[type="submit"] {
+        background: var(--grad-orange-leaf) !important;
+        border: none !important;
+        border-radius: 999px !important;
+        padding: 0.85rem 2rem !important;
+        font-weight: 700 !important;
+        color: var(--white) !important;
+        box-shadow: var(--shadow-glow-orange) !important;
+        transition: transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease) !important;
+        margin-bottom:15px;
+    }
+
+    .pds-form-main .ff-btn:hover,
+    .pds-form-main button[type="submit"]:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg) !important;
+    }
+
+    .pds-form-fallback {
+        padding: 2rem;
+        border: 1px dashed var(--line);
+        border-radius: var(--radius-md);
+        text-align: center;
+        color: var(--ink-soft);
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* ---------- WHY PDS ---------- */
+    .pds-why {
+        padding: clamp(3rem, 6vw, 4.5rem) 0;
+        background: var(--grad-cream-glow);
+    }
+
+    .pds-why-head {
+        text-align: center;
+        max-width: 620px;
+        margin: 0 auto 2.75rem;
+    }
+
+    .pds-why-head h2 { font-size: clamp(1.6rem, 2.8vw, 2.2rem); margin-bottom: 0.75rem; }
+
+    .pds-why-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.25rem;
+    }
+
+    .pds-why-card {
+        background: var(--paper);
+        border-radius: var(--radius-md);
+        padding: 1.75rem 1.4rem;
+        text-align: left;
+        border: 1px solid var(--line);
+        transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+
+    .pds-why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+    .pds-why-icon {
+        width: 46px; height: 46px;
+        border-radius: 12px;
+        background: var(--grad-orange-soft);
+        display: flex; align-items: center; justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .pds-why-icon svg { width: 22px; height: 22px; stroke: var(--orange-deep); }
+
+    .pds-why-card h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+    .pds-why-card p { font-size: 0.88rem; }
+
+    /* ---------- CALL CTA ---------- */
+    .pds-call-cta {
+        padding: 3rem 0 4.5rem;
+    }
+
+    .pds-call-cta-inner {
+        background: var(--navy);
+        background: var(--grad-navy-deep);
+        border-radius: var(--radius-lg);
+        padding: clamp(2.25rem, 5vw, 3.25rem);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        box-shadow: var(--shadow-lg);
+    }
+
+    .pds-call-cta-inner h3 {
+        color: var(--white);
+        font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+        margin-bottom: 0.35rem;
+    }
+
+    .pds-call-cta-inner p { color: var(--text-on-dark-soft); font-size: 0.92rem; }
+
+    .pds-call-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: var(--white);
+        color: var(--navy-deep);
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 700;
+        padding: 0.9rem 1.6rem;
+        border-radius: 999px;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease);
+        box-shadow: var(--shadow-md);
+    }
+
+    .pds-call-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .pds-call-btn svg { width: 18px; height: 18px; stroke: var(--orange-deep); }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 992px) {
+        .pds-quote-hero-inner { grid-template-columns: 1fr; }
+        .pds-quote-hero-art { max-width: 480px; margin: 0 auto; }
+        .pds-process-grid { grid-template-columns: 1fr; }
+        .pds-form-shell { grid-template-columns: 1fr; }
+        .pds-why-grid { grid-template-columns: repeat(2, 1fr); }
+        .pds-form-side-contact {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
+        }
+        .pds-form-side {
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 560px) {
+        .pds-why-grid { grid-template-columns: 1fr; }
+        .pds-call-cta-inner { flex-direction: column; align-items: flex-start; }
+    }

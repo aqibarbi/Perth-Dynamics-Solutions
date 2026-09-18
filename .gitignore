@@ -1,0 +1,14 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Local env (if ever added)
+.env
+
+# Heavy binaries — not needed for a code showcase
+assets/video/
+assets/docs/

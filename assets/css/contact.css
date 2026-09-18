@@ -1,0 +1,585 @@
+/* contact page styles */
+/* ========================================
+   PDS CONTACT PAGE — using site's real design tokens
+   ======================================== */
+
+  /* breadcrumb-bar */
+  .breadcrumb-bar {
+    background: var(--grad-warm-soft);
+    border-bottom: 1px solid var(--line);
+    padding: 0.85rem 1.5rem;
+        margin-top: 156px;
+  }
+
+  .breadcrumb {
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+
+  .breadcrumb ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.88rem;
+  }
+
+  .breadcrumb li {
+    display: flex;
+    align-items: center;
+  }
+
+  .breadcrumb li + li::before {
+    content: "\f105";
+    font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 0.65rem;
+    color: var(--ink-soft);
+    margin: 0 0.6rem;
+    opacity: 0.7;
+  }
+
+  .breadcrumb a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.25s var(--ease);
+  }
+
+  .breadcrumb a:hover {
+    color: var(--orange-deep);
+  }
+
+  .breadcrumb a i {
+    font-size: 0.8rem;
+    color: var(--orange);
+  }
+
+  .breadcrumb li[aria-current="page"] {
+    color: var(--navy-deep);
+    font-weight: 600;
+  }
+
+.pds-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+h1, h2, h3, h4, .pds-eyebrow, .pds-btn {
+    font-family: 'Poppins', sans-serif;
+}
+
+p, .pds-form-lead, .pds-info-note, .pds-review-card p {
+    font-family: 'Inter', sans-serif;
+}
+
+.pds-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange-deep);
+    margin-bottom: 12px;
+}
+
+.pds-eyebrow--small {
+    margin-bottom: 8px;
+}
+
+/* ---- Hero ---- */
+.pds-hero {
+    background: var(--grad-navy-deep);
+    padding: 80px 0 64px;
+    text-align: center;
+}
+
+.pds-hero-inner {
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.pds-hero .pds-eyebrow {
+    color: var(--orange);
+}
+
+.pds-hero-title {
+    font-size: clamp(32px, 4.4vw, 46px);
+    font-weight: 700;
+    color: var(--text-on-dark);
+    line-height: 1.15;
+    margin-bottom: 16px;
+}
+
+.pds-hero-title em {
+    font-style: italic;
+    color: var(--orange);
+}
+
+.pds-hero-subtitle {
+    font-size: 16px;
+    color: var(--text-on-dark-soft);
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+.pds-trust-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-on-dark-faint);
+}
+
+.pds-trust-divider {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--text-on-dark-faint);
+}
+
+/* ---- Contact grid ---- */
+.pds-contact-section {
+    background: var(--grad-warm-soft);
+    padding: 72px 0;
+}
+
+.pds-contact-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.pds-form-card, .pds-info-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: var(--shadow-md);
+}
+
+.pds-form-card h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+
+.pds-form-lead {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.pds-form-fallback {
+    padding: 2rem;
+    border: 1px dashed var(--line);
+    border-radius: 14px;
+    text-align: center;
+    color: var(--ink-soft);
+}
+
+.pds-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pds-info-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+
+.pds-info-note {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.pds-info-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.25s var(--ease);
+}
+
+.pds-info-link:last-child { margin-bottom: 0; }
+
+.pds-info-link svg { color: var(--orange); flex-shrink: 0; }
+
+.pds-info-link:hover { color: var(--orange-deep); }
+
+/* ---- Why PDS: numbered list ---- */
+.pds-why-section {
+    background: var(--paper);
+    padding: 88px 0;
+}
+
+.pds-why-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 56px;
+    align-items: start;
+}
+
+.pds-why-header h2 {
+    font-size: clamp(26px, 3.4vw, 34px);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-bottom: 14px;
+}
+
+.pds-why-header p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+}
+
+.pds-why-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.pds-why-row {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+}
+
+.pds-why-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.pds-why-num {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--orange);
+    opacity: 0.5;
+    line-height: 1;
+    min-width: 44px;
+}
+
+.pds-why-row h4 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+}
+
+.pds-why-row p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+}
+
+/* ---- FAQ teaser ---- */
+.pds-faq-section {
+    background: var(--grad-warm-soft);
+    padding: 88px 0;
+}
+
+.pds-faq-header {
+    max-width: 560px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.pds-faq-header h2 {
+    font-size: clamp(26px, 3.4vw, 32px);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 10px;
+}
+
+.pds-faq-header p {
+    font-size: 15px;
+    color: var(--ink-soft);
+}
+
+.pds-faq-header a {
+    color: var(--orange-deep);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.pds-faq-list {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.pds-faq-item {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.pds-faq-item:last-child { border-bottom: none; }
+
+.pds-faq-item h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+}
+
+.pds-faq-item p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+}
+
+
+/*form*/
+/* ========================================
+   FLUENT FORMS — styled to match PDS design system
+   Scoped to .frm-fluent-form so it applies to any Fluent Form
+   on the site, regardless of form ID.
+   ======================================== */
+
+.frm-fluent-form {
+    font-family: 'Inter', sans-serif;
+}
+
+/* ---- Column layout (Fluent Forms' own 2-col rows) ---- */
+.frm-fluent-form .ff-column-container {
+    gap: 20px;
+    margin-bottom: 4px;
+}
+
+.frm-fluent-form .ff-t-cell {
+    padding: 0 !important;
+}
+
+/* ---- Field group spacing ---- */
+.frm-fluent-form .ff-el-group {
+    margin-bottom: 20px;
+}
+
+/* ---- Labels ---- */
+.frm-fluent-form .ff-el-input--label label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+
+.frm-fluent-form .ff-el-is-required label::after {
+    content: ' *';
+    color: var(--orange-deep);
+}
+
+/* ---- Inputs, selects, textarea ---- */
+.frm-fluent-form .ff-el-form-control {
+    width: 100%;
+    padding: 13px 16px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    transition: all 0.25s var(--ease, ease);
+    box-sizing: border-box;
+}
+
+.frm-fluent-form .ff-el-form-control::placeholder {
+    color: var(--ink-soft);
+    opacity: 0.7;
+}
+
+.frm-fluent-form .ff-el-form-control:focus {
+    outline: none;
+    border-color: var(--orange);
+    background: var(--paper);
+    box-shadow: 0 0 0 3px rgba(243, 153, 90, 0.15);
+}
+.iti__selected-country:hover{
+    background-color:inherit!important;    
+}
+.iti__selected-country:focus{
+    background-color:inherit!important;    
+}
+
+/* Selects need an explicit override — browsers apply their own
+   default blue focus ring to <select> with higher specificity
+   than a shared .ff-el-form-control:focus rule. */
+.frm-fluent-form select.ff-el-form-control:focus,
+.frm-fluent-form select.ff-el-form-control:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(243, 153, 90, 0.15) !important;
+    border-color: var(--orange) !important;
+}
+
+/* Firefox draws its own dotted inner focus ring on <select> via
+   this pseudo-element — this removes it without touching outline. */
+.frm-fluent-form select.ff-el-form-control:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 var(--ink);
+}
+
+.frm-fluent-form textarea.ff-el-form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.frm-fluent-form select.ff-el-form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2369728a' stroke-width='2'%3e%3cpath d='M6 9l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+/* ---- File upload ---- */
+.frm-fluent-form .ff_file_upload_holder {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.frm-fluent-form .ff_upload_btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 11px 20px;
+    background: var(--paper);
+    border: 1px dashed var(--line);
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    transition: all 0.25s var(--ease, ease);
+}
+
+.frm-fluent-form .ff_file_upload_holder:hover .ff_upload_btn {
+    border-color: var(--orange);
+    color: var(--orange-deep);
+}
+
+.frm-fluent-form .ff-uploaded-list {
+    color: var(--ink-soft);
+}
+
+/* ---- Submit button ---- */
+.frm-fluent-form .ff_btn_style,
+.frm-fluent-form .ff-btn-submit {
+    width: 100%;
+    padding: 15px 28px;
+    background: var(--grad-orange-leaf);
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: var(--shadow-glow-orange);
+    transition: all 0.3s var(--ease-spring, ease);
+}
+
+.frm-fluent-form .ff_btn_style:hover,
+.frm-fluent-form .ff-btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -6px rgba(221, 126, 46, 0.55);
+}
+
+.frm-fluent-form .ff_submit_btn_wrapper {
+    margin-top: 8px;
+}
+
+/* ---- Error / validation states ---- */
+.frm-fluent-form .error {
+    color: #c0392b;
+    font-size: 12px;
+    margin-top: 6px;
+    display: block;
+}
+
+.frm-fluent-form .ff-el-form-control[aria-invalid="true"] {
+    border-color: #c0392b;
+}
+
+/* ---- Success message wrapper (if using custom success screen) ---- */
+.frm-fluent-form .ff-message-success {
+    text-align: center;
+    padding: 40px 20px;
+}
+.frm-fluent-form .choices__list--single {
+    display: inline-block;
+    padding: 6px 24px 6px 12px;
+    width: 100%;
+    background: var(--cream);
+    border: 1px solid var(--line);
+}
+
+/* ---- Responsive: stack 2-col rows on mobile ---- */
+@media (max-width: 640px) {
+    .frm-fluent-form .ff-column-container {
+        flex-direction: column;
+    }
+    .frm-fluent-form .ff-t-cell {
+        flex-basis: 100% !important;
+        width: 100%;
+    }
+}
+
+/* ---- Responsive: stack 2-col rows on mobile ---- */
+@media (max-width: 640px) {
+    .frm-fluent-form .ff-column-container {
+        flex-direction: column;
+    }
+    .frm-fluent-form .ff-t-cell {
+        flex-basis: 100% !important;
+        width: 100%;
+    }
+}
+
+
+
+
+/* ---- Responsive ---- */
+@media (max-width: 960px) {
+    .pds-contact-grid,
+    .pds-why-grid {
+        grid-template-columns: 1fr;
+    }
+   
+}
+
+@media (max-width: 640px) {
+    .pds-hero {
+        padding: 56px 0 44px;
+        }
+    .pds-form-card, .pds-info-card { padding: 24px; }
+    .pds-why-section, .pds-faq-section  { padding: 60px 0; }
+}
