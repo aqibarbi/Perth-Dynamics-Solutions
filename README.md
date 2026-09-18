@@ -2,6 +2,8 @@
 
 WordPress child theme for [Perth Dynamic Solutions](https://perthdynamicsolutions.com.au/), a WA portable homes company. Parent theme is Hello Elementor; custom PHP page templates handle the product listings.
 
+Built by [Muhammad Aqib Javed](https://portfolio-muhammad-aqibjaved.netlify.app).
+
 ## Screenshots
 
 **Homepage**
