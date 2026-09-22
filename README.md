@@ -42,8 +42,8 @@ Built by [Muhammad Aqib Javed](https://portfolio-muhammad-aqibjaved.netlify.app)
     ├── quote-form-custom.css / .js   # Get a Quote page only, loaded conditionally
     ├── css/                   # one stylesheet per page/template, enqueued conditionally
     ├── img/                   # icons, footer images, hero illustration
-    ├── video/                 # hero + step videos (mp4/webm pairs)
-    └── docs/                  # downloadable brochures (PDF)
+    ├── video/                 # hero + step videos (mp4/webm pairs) — gitignored, not in repo
+    └── docs/                  # downloadable brochures (PDF) — gitignored, not in repo
 ```
 
 ## Product system
