@@ -16,9 +16,9 @@ get_header(); ?>
                 <div class="eyebrow">
                     Western Australia's trusted build &amp; solutions team
                 </div>
-                <h1 class="hero-h">Built Off-Site.<br><em class="accent">Lived-In Fast.</em></h1>
+                <h1 class="hero-h">Modular Homes Perth.<br>Built Off-Site<br><em class="accent">Lived-In Fast.</em></h1>
                 <p class="lead">
-                    Expandable, modular homes — delivered Australia-wide.
+                    Expandable, council-compliant modular homes — delivered across Perth, WA and Australia-wide.
                 </p>
                 <div class="hero-ctas">
                     <a class="btn" href="#range">Browse our range</a>
@@ -81,16 +81,16 @@ get_header(); ?>
     
                     <div class="reel-slide">
                         <div class="reel-embed" style="aspect-ratio: 854 / 480;"
-                             data-video-mp4="<?php echo get_stylesheet_directory_uri(); ?>/assets/video/video1-small.mp4"
-                             data-video-webm="<?php echo get_stylesheet_directory_uri(); ?>/assets/video/video1-small.webm"
+                             data-video-mp4="<?php echo get_stylesheet_directory_uri(); ?>/assets/video/video_4-optimized.mp4"
+                             data-video-webm="<?php echo get_stylesheet_directory_uri(); ?>/assets/video/video_4-optimized.webm"
                              data-poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/video/video1-poster.webp">
-                            <div class="reel-placeholder" style="background-image:url('<?php echo get_stylesheet_directory_uri(); ?>/assets/video/video1-poster.webp'); background-size:cover; background-position:center;">
+                            <div class="reel-placeholder" style="background-image:url('<?php echo get_stylesheet_directory_uri(); ?>/assets/video/video_4-poster.webp'); background-size:cover; background-position:center;">
                                 <button class="reel-play-btn" aria-label="Play video">
                                     <i class="fa-solid fa-play"></i>
                                 </button>
                             </div>
                         </div>
-                        <a class="reel-fb-link" href="https://www.facebook.com/share/v/17ee3VW62h/" target="_blank" rel="noopener">
+                        <a class="reel-fb-link" href="https://www.facebook.com/share/v/19ig4ifmng/?mibextid=wwXIfr" target="_blank" rel="noopener">
                             <i class="fa-brands fa-facebook-f"></i> View on Facebook
                         </a>
                     </div>
@@ -144,10 +144,9 @@ get_header(); ?>
         <div class="wrap">
             <div class="sec-head">
                 <div class="sec-eyebrow">Our Range</div>
-                <h2 class="sec-h">A solution for every property &amp; budget.</h2>
+                <h2 class="sec-h">Perth's range of modular homes — a solution for every property & budget.</h2>
                 <p class="sec-sub">
-                    From small backyard builds to full-scale projects — every job is
-                    planned, costed and delivered with the same WA-tested standard.
+                   From small backyard granny flats to full-scale Class 1A builds, every modular home is planned, costed and delivered to the same WA-tested standard.
                 </p>
             </div>
             <div class="range-grid">
@@ -160,7 +159,7 @@ get_header(); ?>
                         </div>
                         <div class="body">
                             <h3>Expanders</h3>
-                            <p>Flexible, ready-to-place builds for growing households.</p>
+                            <p>Flexible, ready-to-place container homes Perth trusts for growing households.</p>
                             <div class="price">From <b>$26,000</b></div>
                             <span class="explore">Explore range →</span>
                         </div>
@@ -169,15 +168,14 @@ get_header(); ?>
                 <div class="range-card">
                     <a href="/studio">
                         <div class="swatch" style="background: linear-gradient(135deg, #9bc97a, #6fa84b)">
-                            <span class="tag">Self-contained</span>
+                            <span class="tag">Granny Flats Perth</span>
                             <img src="https://perthdynamicsolutions.com.au/wp-content/uploads/2026/09/cabinspods.webp"
                                 loading="lazy" alt="Studios" srcset="" />
                         </div>
                         <div class="body">
                             <h3>Studios</h3>
                             <p>
-                                Pre-built cabin and pod range — granny flats, guest quarters and
-                                rental-ready backyard studios.
+                                Pre-built cabin and pod range — granny flats Perth, guest quarters and rental-ready backyard studios.
                             </p>
                             <div class="price">From <b>$19,000</b></div>
                             <span class="explore">Explore range →</span>
@@ -187,14 +185,14 @@ get_header(); ?>
                 <div class="range-card">
                     <a href="/class-1a">
                         <div class="swatch" style="background: linear-gradient(135deg, #9aa9cf, #16243f)">
-                            <span class="tag">Fully compliant</span>
+                            <span class="tag">Class 1A Granny Flat</span>
                             <img src="https://perthdynamicsolutions.com.au/wp-content/uploads/2026/09/70sqm-expander.webp"
                                 loading="lazy" alt="Class 1a" srcset="" />
                         </div>
                         <div class="body">
                             <h3>Class 1a</h3>
                             <p>
-                                Permanent, building-code compliant homes built to Class 1a standards for full-time living.
+                                Permanent, council-compliant modular homes built to Class 1A standards — ideal as an ancillary dwelling for full-time living.
                             </p>
                             <div class="price">From <b>$23,000</b></div>
                             <span class="explore">Explore range →</span>
@@ -362,6 +360,28 @@ get_header(); ?>
             </div>
         </div>
     </section>
+
+    <!-- Perth's Home for Modular Living -->
+    <section class="modular-living" id="modular-living">
+        <div class="wrap modular-layout">
+    
+            <!-- Left: heading -->
+            <div class="sec-head">
+                <h2 class="sec-h">Perth's Home for Modular Living</h2>
+            </div>
+    
+            <!-- Right: text card -->
+            <article class="modular-card">
+                <p>
+                    Perth Dynamic Solutions designs and delivers modular homes Perth families trust — from granny flats Perth backyards to Class 1A granny flat builds and expandable container homes ready to live in fast. Whether you need extra space for ageing parents, a private retreat for teenagers, a rental-ready secondary dwelling, or a fully self-contained home office, our range is built to suit a wide variety of budgets and blocks across the Perth metro area.
+                </p>
+                <p>
+                    Every build meets WA compliance standards and is delivered turnkey — pre-wired, pre-plumbed, and ready to connect on arrival, with a typical 9–10 week lead time from order to delivery. Council-approved ancillary dwelling options are available for those wanting a permanent, full-time living space, while our expandable container homes offer a faster, more flexible path to extra room without the wait times of a traditional site build. Backed by warranty cover and flexible finance options, it's a modular home solution WA has already tested and trusted — nationwide delivery available for customers outside the Perth area too.
+                </p>
+            </article>
+    
+        </div>
+    </section>
     
     
 <section class="reviews" id="reviews">
@@ -515,6 +535,60 @@ get_header(); ?>
         <div class="acc-dots" id="accDots"></div>
     </div>
 </section>
+
+    <!---->
+<section id="faqs">
+    <div class="container">
+      <div class="title">
+        <h2>FAQS</h2>
+        <a class="section-cta" href="<?php echo esc_url( home_url( '/faqs' ) ); ?>">Still have questions?</a>
+      </div>
+      <div class="faqlist">
+        <div class="faqlist-col">
+            <!-- New FAQ 1 -->
+          <div class="item">
+            <h4><span class="faq-icon-badge"><i class="fas fa-dollar-sign"></i></span>What is the typical cost of a granny flat in Australia?</h4>
+            <div>
+              <p>Prices vary depending on size and finish, but modular granny flats in Perth typically start from around $19,000 for a compact studio-style build, with fully-equipped one and two-bedroom options ranging higher depending on layout and inclusions. Traditional site-built granny flats in WA can run considerably more once council approval, site works, and services connections are factored in — a modular build is generally the more cost-effective route to a self-contained space.</p>
+            </div>
+          </div>
+
+          <!-- New FAQ 2 -->
+          <div class="item">
+            <h4><span class="faq-icon-badge"><i class="fas fa-drafting-compass"></i></span>What is the best layout for a small granny flat?</h4>
+            <div>
+              <p>The most functional small granny flat layouts keep living, kitchen, and dining in one open-plan space to maximise the sense of room, with the bedroom and bathroom tucked to one side for privacy. Good natural light, built-in storage, and a covered entry all make a compact footprint feel larger without adding square metres. Our team can walk you through layout options that suit your specific block and use case.</p>
+            </div>
+          </div>
+
+          <!-- New FAQ 3 -->
+          <div class="item">
+            <h4><span class="faq-icon-badge"><i class="fas fa-helmet-safety"></i></span>Who is the best granny flat builder in Perth?</h4>
+            <div>
+              <p>The right builder depends on your budget, timeline, and how self-contained you need the space to be. Perth Dynamic Solutions specialises in modular, council-compliant granny flats delivered fully finished from the factory — with WA-tested standards, fast 9–10 week lead times, and pricing from $19,000, making us a strong option for anyone comparing local granny flat builders.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faqlist-col">
+            <!-- New FAQ 4 -->
+          <div class="item">
+            <h4><span class="faq-icon-badge"><i class="fas fa-house-chimney"></i></span>How much does it cost to build a modular home in Perth?</h4>
+            <div>
+              <p>Modular homes in Perth typically start from around $19,000 for a compact studio unit, with fully compliant Class 1A modular homes for full-time living starting from $23,000 and larger expandable builds from $26,000. Final pricing depends on size, layout, and site requirements — get an exact quote based on your block and needs.</p>
+            </div>
+          </div>
+
+          <!-- New FAQ 5 -->
+          <div class="item">
+            <h4><span class="faq-icon-badge"><i class="fas fa-ruler-combined"></i></span>How big can a granny flat be in Western Australia?</h4>
+            <div>
+              <p>Under WA's Residential Design Codes (R-Codes), a granny flat (ancillary dwelling) can have a maximum internal floor area of 70m². Units at or under this size on residential land generally don't require planning approval — though a building permit is still needed, and setback requirements still apply. Our range is designed to make the most of that 70m² allowance while staying fully compliant.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <script>
