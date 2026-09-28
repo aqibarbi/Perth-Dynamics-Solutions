@@ -238,11 +238,11 @@ function pds_enqueue_single_product_styles() {
     $css_file = null;
 
     if ( has_term( 'class-1a', 'product_category', $post_id ) || has_term( 'half-expander', 'product_category', $post_id ) ) {
-        $css_file = 'single-class1a.css';   // both route to single-products-class1a.php
+        $css_file = 'single-class1a.css';  
     } elseif ( has_term( 'expanders', 'product_category', $post_id ) ) {
         $css_file = 'single-expander.css';
     } elseif ( has_term( 'cabins-pods', 'product_category', $post_id ) ) {
-        $css_file = 'single-studios.css';   // cabins-pods routes to single-products-studios.php
+        $css_file = 'single-studios.css'; 
     } elseif ( has_term( 'spaces', 'product_category', $post_id ) ) {
         $css_file = 'single-spaces.css';
     }
@@ -313,7 +313,6 @@ add_action( 'init', 'pds_register_product_cpt' );
 /**
  * Add to functions.php (or a plugin). Registers ONE global options page:
  * "PDS Swatch Library". Fill swatch photos here ONCE, across all products.
- * Then import acf-export-2026-07-24-updated.json in ACF > Tools > Import.
  */
 if ( function_exists('acf_add_options_page') ) {
     acf_add_options_page([
