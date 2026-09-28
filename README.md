@@ -25,7 +25,7 @@ Built by [Muhammad Aqib Javed](https://portfolio-muhammad-aqibjaved.netlify.app)
 *Page templates, product CPT/taxonomy logic, and all CSS/JS below are custom-coded. Plugins here only handle their own specific feature.*
 
 - Parent theme: Hello Elementor (used only as a bare parent theme; the Elementor plugin is not used)
-- ACF (product fields: dimensions, layouts, swatches; global "PDS Swatch Library" options page)
+- - ACF (product fields: dimensions, layouts, swatches; global "PDS Swatch Library" options page). Field groups are managed in the WordPress admin and are not stored in this repo.
 - Fluent Forms Pro: the quote form (form ID 5) hooks into it from `functions.php` (product checkboxes, product titles in emails). No longer installed on the live site.
 - WP Rocket (caching)
 
