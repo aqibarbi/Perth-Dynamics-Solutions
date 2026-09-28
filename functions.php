@@ -267,10 +267,7 @@ add_action( 'wp_enqueue_scripts', 'pds_enqueue_single_product_styles' );
 
 /**
  * ============================================================
- * STEP 1: Custom Post Type + Taxonomy for Products
- * Add this to your child theme's functions.php
- * (or paste into CPT UI plugin's "Import/Export" screen instead
- *  if you prefer the GUI — same result, either way works.)
+ Custom Post Type + Taxonomy for Products
  * ============================================================
  */
 
@@ -408,10 +405,7 @@ add_filter('fluentform/rendering_field_data_input_checkbox', function ($field) {
 
 /**
  * ============================================================
- * STEP 3: Output full product data as JS for rich card rendering
- * (Moved out of the fluentform filter above — this must only be
- *  registered ONCE per page load, not once per checkbox field.)
- * ============================================================
+	 Output full product data as JS for rich card rendering
  */
 add_action('wp_footer', function () {
 
@@ -481,8 +475,8 @@ add_action('wp_footer', function () {
 
 /**
  * ============================================================
- * STEP 4: Show product titles instead of product IDs in email
- * notifications (e.g. "The Wren, The Cove" instead of "333, 332")
+ how product titles instead of product IDs in email
+ * notifications 
  * ============================================================
  */
 add_filter('fluentform/email_body', 'pds_replace_product_ids_with_titles', 10, 4);
