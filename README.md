@@ -78,7 +78,7 @@ Built by [Muhammad Aqib Javed](https://portfolio-muhammad-aqibjaved.netlify.app)
 
 ### Not live
 
-`page-quote.php` and `page-contact.php` are complete templates that are not in use on the live site. They stay in the repo as working code.
+`page-quote.php`  are complete templates that are not in use on the live site. They stay in the repo as working code.
 
 ## Notes
 
