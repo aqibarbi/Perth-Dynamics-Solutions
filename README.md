@@ -25,13 +25,14 @@ Built by [Muhammad Aqib Javed](https://portfolio-muhammad-aqibjaved.netlify.app)
 *Page templates, product CPT/taxonomy logic, and all CSS/JS below are custom-coded. Plugins here only handle their own specific feature.*
 
 - Parent theme: Hello Elementor (used only as a bare parent theme; the Elementor plugin is not used)
-- ACF (product fields: dimensions, layouts, swatches)
+- ACF (product fields: dimensions, layouts, swatches; global "PDS Swatch Library" options page)
+- Fluent Forms Pro: the quote form (form ID 5) hooks into it from `functions.php` (product checkboxes, product titles in emails). No longer installed on the live site.
 - WP Rocket (caching)
 
 ## Structure
 
 ```
-├── functions.php              # CPT/taxonomy registration, asset enqueue, nav walker
+├── functions.php              # CPT/taxonomy registration, asset enqueue, nav walker, ACF options page, quote-form hooks, PageSpeed tweaks
 ├── header.php / footer.php    # global header/footer
 ├── front-page.php             # homepage (Template Name: Home)
 ├── page-*.php                 # custom page templates, see "Page templates" section below for full list + status
