@@ -2,13 +2,15 @@
 
 WordPress child theme for [Perth Dynamic Solutions](https://perthdynamicsolutions.com.au/), a WA portable homes company. Parent theme is Hello Elementor; custom PHP page templates handle the product listings.
 
+**Live site:** [perthdynamicsolutions.com.au](https://perthdynamicsolutions.com.au/)
+
 Built by [Muhammad Aqib Javed](https://portfolio-muhammad-aqibjaved.netlify.app).
 
 ## Screenshots
 
 **Homepage**
 
-![Homepage](assets/img/PDSThumnail.png)
+![Homepage](assets/img/screenshot-home.png)
 
 **Category Listing** *(any product-category page: Expanders, Cabins & Pods, etc. Layout is the same across all of them)*
 
@@ -22,10 +24,8 @@ Built by [Muhammad Aqib Javed](https://portfolio-muhammad-aqibjaved.netlify.app)
 
 *Page templates, product CPT/taxonomy logic, and all CSS/JS below are custom-coded. Plugins here only handle their own specific feature.*
 
-- Parent theme: Hello Elementor
-- Elementor (page building on top of custom templates)
+- Parent theme: Hello Elementor (used only as a bare parent theme; the Elementor plugin is not used)
 - ACF (product fields: dimensions, layouts, swatches)
-- Fluent Forms Pro: quote form (`page-quote.php`, shortcode id 5) and contact form (`page-contact.php`, shortcode id 6)
 - WP Rocket (caching)
 
 ## Structure
@@ -42,9 +42,11 @@ Built by [Muhammad Aqib Javed](https://portfolio-muhammad-aqibjaved.netlify.app)
     ├── quote-form-custom.css / .js   # Get a Quote page only, loaded conditionally
     ├── css/                   # one stylesheet per page/template, enqueued conditionally
     ├── img/                   # icons, footer images, hero illustration
-    ├── video/                 # hero + step videos (mp4/webm pairs) — gitignored, not in repo
-    └── docs/                  # downloadable brochures (PDF) — gitignored, not in repo
+    ├── video/                 # hero + step videos (mp4/webm pairs) — not in repo (large file size)
+    └── docs/                  # downloadable brochures (PDF) — not in repo (large file size)
 ```
+
+> **Note:** Videos (`assets/video/`) and brochure PDFs (`assets/docs/`) are not included in this repo because of their file size. They are listed in `.gitignore`. The theme references them, so add your own files at those paths to run it locally.
 
 ## Product system
 
@@ -69,10 +71,14 @@ Built by [Muhammad Aqib Javed](https://portfolio-muhammad-aqibjaved.netlify.app)
 | `page-class-1a.php` | Class 1A Page | DIY Class 1A listing | Live |
 | `page-spaces.php` | Spaces | Spaces listing | Live |
 | `page-accessories.php` | Accessories Page | Accessories listing | Live |
-| `page-quote.php` | Get a Quote | Quote form (Fluent Forms) | Feature added, later removed from live by client. Kept in codebase for future use. |
+| `page-quote.php` | Get a Quote | Quote request form (custom JS/CSS in `assets/quote-form-custom.*`) | Not live. Built and shipped, later removed from the live site by the client. Kept in codebase for future use. |
 | `page-finance.php` | Finance Page | Credit One embedded quote form | Live |
-| `page-contact.php` | Contact Us | Contact form (Fluent Forms) | Live |
+| `page-contact.php` | Contact Us | Contact form | Not live. Built, not in use on the live site. Kept in codebase. |
 | `faqs.php` | FAQ Page | FAQs | Live |
+
+### Not live
+
+`page-quote.php` and `page-contact.php` are complete templates that are not in use on the live site. They stay in the repo as working code.
 
 ## Notes
 
