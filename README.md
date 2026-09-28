@@ -73,7 +73,7 @@ Built by [Muhammad Aqib Javed](https://portfolio-muhammad-aqibjaved.netlify.app)
 | `page-accessories.php` | Accessories Page | Accessories listing | Live |
 | `page-quote.php` | Get a Quote | Quote request form (custom JS/CSS in `assets/quote-form-custom.*`) | Not live. Built and shipped, later removed from the live site by the client. Kept in codebase for future use. |
 | `page-finance.php` | Finance Page | Credit One embedded quote form | Live |
-| `page-contact.php` | Contact Us | Contact form | Not live. Built, not in use on the live site. Kept in codebase. |
+| `page-contact.php` | Contact Us | Contact form | live |
 | `faqs.php` | FAQ Page | FAQs | Live |
 
 ### Not live
