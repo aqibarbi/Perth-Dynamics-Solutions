@@ -106,6 +106,22 @@ if (empty($ceiling_options)) {
     ];
 }
 
+/* ---------- cladding add-on (price by module length) ---------- */
+$cladding_prices = [20 => 2000, 30 => 2500, 40 => 3000];
+$cladding_price  = $cladding_prices[(int) $module_size] ?? 2000;
+
+/* cladding add-on hidden on half expanders (term containing "half") and on listed slugs */
+$cladding_hide_slugs = ['cove', 'ember'];
+$is_half_expander = false;
+foreach (get_post_taxonomies($post_id) as $tax_name) {
+    $post_terms = get_the_terms($post_id, $tax_name);
+    if (!$post_terms || is_wp_error($post_terms)) continue;
+    foreach ($post_terms as $pt) {
+        if (stripos($pt->slug . ' ' . $pt->name, 'half') !== false) { $is_half_expander = true; break 2; }
+    }
+}
+$show_cladding = !$is_half_expander && !in_array(get_post_field('post_name', $post_id), $cladding_hide_slugs, true);
+
 /* ---------- at-a-glance bullets ---------- */
 $glance_items = [];
 if (have_rows('glance_items', $post_id)) { while (have_rows('glance_items', $post_id)) { the_row(); $glance_items[] = get_sub_field('text'); } }
@@ -501,6 +517,16 @@ $bed_range = ($bed_low == $bed_high) ? $bed_low : "$bed_low–$bed_high";
                         <?php endforeach; ?>
                     </div>
                     <p style="color: var(--orange-accessible);font-size: 18px;font-weight: 700;text-align: center;">For 2.4m ceiling, Gable roof required, costs $3000.</p>
+                    <?php if ($show_cladding) : ?>
+                    <div class="cladding-block">
+                        <button type="button" class="ceiling-option" id="claddingToggle" aria-pressed="false"
+                            data-delta="<?php echo esc_attr($cladding_price); ?>">
+                            <span class="cladding-label">Add cladding</span>
+                            <span class="delta">+$<?php echo esc_html(number_format($cladding_price)); ?></span>
+                        </button>
+                        <p class="cladding-note">Base price excludes cladding. You will still get the same wall thickness of 75mm without cladding.</p>
+                    </div>
+                    <?php endif; ?>
                     <div class="buy-box">
                         <div class="buy-box-config" id="buyConfig">
                             <?php echo esc_html($l0['beds']); ?> bed ·
@@ -511,10 +537,10 @@ $bed_range = ($bed_low == $bed_high) ? $bed_low : "$bed_low–$bed_high";
                         </div>
                         <div class="buy-box-finance">or from <strong>$
                                 <?php echo esc_html($finance_weekly); ?>
-                            </strong>/week with finance · <a href="#">Learn more</a></div>
+                            </strong>/week with finance · <a href="/finance">Learn more</a></div>
                         <div class="buy-box-actions">
-                            <a href="#" class="btn btn-primary" id="cta-quote-buybox">Book an appointment</a>
-                            <a href="#" class="btn btn-outline-navy">Finance options</a>
+                            <a href="https://m.me/61586353940439" class="btn btn-primary" id="cta-quote-buybox">Book an appointment</a>
+                            <a href="/finance" class="btn btn-outline-navy">Finance options</a>
                         </div>
                     </div>
                     <div class="trust-row">
@@ -775,7 +801,7 @@ $bed_range = ($bed_low == $bed_high) ? $bed_low : "$bed_low–$bed_high";
         ]); ?>;
         var LAYOUTS_BY_BEDS = productData.layoutsByBeds;
         var BED_COUNTS = productData.bedCounts;
-        var state = { beds: BED_COUNTS[0], variantIndex: 0, ceilingDelta: productData.ceilingOptions[0].delta, ceilingLabel: productData.ceilingOptions[0].label };
+        var state = { beds: BED_COUNTS[0], variantIndex: 0, ceilingDelta: productData.ceilingOptions[0].delta, ceilingLabel: productData.ceilingOptions[0].label, claddingDelta: 0, claddingLabel: "" };
 
         function currentLayout() { return LAYOUTS_BY_BEDS[state.beds][state.variantIndex]; }
 
@@ -801,7 +827,7 @@ $bed_range = ($bed_low == $bed_high) ? $bed_low : "$bed_low–$bed_high";
 
         function render() {
             var l = currentLayout();
-            var total = l.price + state.ceilingDelta;
+            var total = l.price + state.ceilingDelta + state.claddingDelta;
             document.getElementById("layoutName").textContent = l.label;
             document.getElementById("layoutDesc").textContent = l.desc;
             renderBullets(l.bullets);
@@ -811,7 +837,7 @@ $bed_range = ($bed_low == $bed_high) ? $bed_low : "$bed_low–$bed_high";
             document.getElementById("layoutPlanImg").src = l.plan || document.getElementById("layoutPlanImg").src;
             document.getElementById("layoutPlanImg").alt = state.beds + " bedroom floor plan";
 
-            var configLabel = state.beds + " bed · " + state.ceilingLabel;
+            var configLabel = state.beds + " bed · " + state.ceilingLabel + (state.claddingLabel ? " · " + state.claddingLabel : "");
             document.getElementById("buyConfig").textContent = configLabel;
             document.getElementById("buyPrice").textContent = money(total);
             document.getElementById("stickyConfig").textContent = configLabel;
@@ -831,15 +857,29 @@ $bed_range = ($bed_low == $bed_high) ? $bed_low : "$bed_low–$bed_high";
         });
 
         /* ---------- ceiling toggle ---------- */
-        document.querySelectorAll(".ceiling-option").forEach(function (btn) {
+        document.querySelectorAll("#ceilingOptions .ceiling-option").forEach(function (btn) {
             btn.addEventListener("click", function () {
-                document.querySelectorAll(".ceiling-option").forEach(function (b) { b.classList.remove("is-active"); });
+                document.querySelectorAll("#ceilingOptions .ceiling-option").forEach(function (b) { b.classList.remove("is-active"); });
                 btn.classList.add("is-active");
                 state.ceilingDelta = parseInt(btn.dataset.delta, 10);
                 state.ceilingLabel = btn.dataset.label;
                 render();
             });
         });
+
+        /* ---------- cladding toggle ---------- */
+        var claddingBtn = document.getElementById("claddingToggle");
+        if (claddingBtn) {
+            claddingBtn.addEventListener("click", function () {
+                var on = !claddingBtn.classList.contains("is-active");
+                claddingBtn.classList.toggle("is-active", on);
+                claddingBtn.setAttribute("aria-pressed", on ? "true" : "false");
+                claddingBtn.querySelector(".cladding-label").textContent = on ? "Cladding added" : "Add cladding";
+                state.claddingDelta = on ? parseInt(claddingBtn.dataset.delta, 10) : 0;
+                state.claddingLabel = on ? "Cladding" : "";
+                render();
+            });
+        }
 
         render();
 
