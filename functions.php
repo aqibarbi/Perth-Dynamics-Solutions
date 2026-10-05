@@ -1,10 +1,10 @@
 <?php
-// Turn off Hello Elementor's (parent theme) three default stylesheets
+// Hello Elementor (parent) ki teeno default stylesheets band karo
 add_filter( 'hello_elementor_enqueue_style', '__return_false' );        // reset.css
 add_filter( 'hello_elementor_enqueue_theme_style', '__return_false' );  // theme.css
 add_filter( 'hello_elementor_header_footer', '__return_false' );        // header-footer.css
 
-// Register menu location
+// Menu location register karo
 function pds_register_menus() {
     register_nav_menus( array(
         'primary' => __( 'Primary Header Menu' ),
@@ -14,9 +14,6 @@ add_action( 'after_setup_theme', 'pds_register_menus' );
 
 /**
  * Preload hero LCP image + preconnect Font Awesome CDN origin.
- * PageSpeed: LCP breakdown showed 1.65-1.69s "resource load delay" before
- * the hero image even starts downloading (stuck behind render-blocking CSS).
- * Preload gets the browser fetching it immediately.
  */
 add_action( 'wp_head', function () {
     if ( is_front_page() ) {
@@ -29,11 +26,6 @@ add_action( 'wp_head', function () {
 
 /**
  * WP core's Font Library (Appearance > Fonts) auto-generates @font-face
- * rules for Inter/Poppins with font-display defaulting to "fallback" —
- * there's no Admin UI setting for this (WP_Font_Face core default).
- * "fallback" still has a ~100ms invisible-text block; "swap" has none.
- * PageSpeed flagged 1.65-1.77s here. No official filter exists for
- * Font-Library-sourced fonts, so patch the printed <head> output directly.
  */
 add_action( 'wp_head', function () { ob_start(); }, 0 );
 add_action( 'wp_head', function () {
@@ -117,7 +109,7 @@ function pds_enqueue_footer_js() {
         get_stylesheet_directory_uri() . '/footer.js',
         array(),
         '1.0.0',
-        true // true = load in footer, not head
+        true // true = footer me load hoga, head me nahi
     );
 }
 add_action( 'wp_enqueue_scripts', 'pds_enqueue_footer_js' );
@@ -154,7 +146,7 @@ function pds_quote_form_assets() {
         get_stylesheet_directory_uri() . '/assets/quote-form-custom.js',
         array(),
         file_exists( $js_path ) ? filemtime( $js_path ) : false,
-        true // load in footer
+        true // footer mein load hoga
     );
 }
 add_action( 'wp_enqueue_scripts', 'pds_quote_form_assets' );
@@ -190,10 +182,10 @@ function pds_enqueue_page_styles() {
     // page template file => matching css file name
     $css_map = array(
         'faqs.php'                 => 'faqs.css',
-        'page-studios.php'        => 'studios.css',
+        'page-Studios.php'        => 'studios.css',
         'page-accessories.php'    => 'accessories.css',
         'page-class-1a.php'       => 'class-1a.css',
-        'page-contact.php'        => 'contact.css',
+        'page-contect.php'        => 'contact.css',
         'page-expanders.php'      => 'expanders.css',
         'page-finance.php'        => 'finance.css',
         'page-half-expanders.php' => 'half-expanders.css',
@@ -204,14 +196,14 @@ function pds_enqueue_page_styles() {
     // check which template current page is using
     $current_template = get_page_template_slug();
 
-    // if current page is in our list, load its css
+    // agar current page hamare list ma hai to uska css load karo
     if ( isset( $css_map[ $current_template ] ) ) {
 
         $css_file = $css_map[ $current_template ];
         $css_path = get_stylesheet_directory() . '/assets/css/' . $css_file;
         $css_url  = get_stylesheet_directory_uri() . '/assets/css/' . $css_file;
 
-        // filemtime for cache-busting, so browser doesn't show stale css after an update
+        // filemtime cache-busting k liya, taake update k baad browser purani css na dikhaye
         if ( file_exists( $css_path ) ) {
             wp_enqueue_style(
                 'pds-' . basename( $css_file, '.css' ),
@@ -224,10 +216,40 @@ function pds_enqueue_page_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'pds_enqueue_page_styles' );
 
+add_action( 'wp_enqueue_scripts', function () {
+	if ( ! is_archive() ) {
+		return;
+	}
+	$file = get_stylesheet_directory() . '/assets/css/blog-archive.css';
+	wp_enqueue_style(
+		'pds-blog-archive',
+		get_stylesheet_directory_uri() . '/assets/css/blog-archive.css',
+		array(),
+		file_exists( $file ) ? filemtime( $file ) : null
+	);
+}, 20 );
+
+
+add_action( 'wp_enqueue_scripts', function () {
+	$files = array();
+	if ( is_archive() ) {
+		$files['pds-blog-archive'] = 'blog-archive.css';
+	}
+	if ( is_singular( 'post' ) ) {
+		$files['pds-blog-single'] = 'blog-single.css';
+	}
+	foreach ( $files as $handle => $name ) {
+		$path = get_stylesheet_directory() . '/assets/css/' . $name;
+		wp_enqueue_style(
+			$handle,
+			get_stylesheet_directory_uri() . '/assets/css/' . $name,
+			array(),
+			file_exists( $path ) ? filemtime( $path ) : null
+		);
+	}
+}, 20 );
+
 // Load correct CSS file for single product pages (single-products-*.php)
-// Uses the SAME taxonomy term mapping as pds_product_single_template() below,
-// so no guessing — css always matches whichever single-products-*.php file
-// actually renders for that product.
 function pds_enqueue_single_product_styles() {
 
     if ( ! is_singular( 'product' ) ) {
@@ -238,11 +260,11 @@ function pds_enqueue_single_product_styles() {
     $css_file = null;
 
     if ( has_term( 'class-1a', 'product_category', $post_id ) || has_term( 'half-expander', 'product_category', $post_id ) ) {
-        $css_file = 'single-class1a.css';  
+        $css_file = 'single-class1a.css';   // both route to single-products-class1a.php
     } elseif ( has_term( 'expanders', 'product_category', $post_id ) ) {
         $css_file = 'single-expander.css';
     } elseif ( has_term( 'cabins-pods', 'product_category', $post_id ) ) {
-        $css_file = 'single-studios.css'; 
+        $css_file = 'single-studios.css';   // cabins-pods routes to single-products-studios.php
     } elseif ( has_term( 'spaces', 'product_category', $post_id ) ) {
         $css_file = 'single-spaces.css';
     }
@@ -267,7 +289,7 @@ add_action( 'wp_enqueue_scripts', 'pds_enqueue_single_product_styles' );
 
 /**
  * ============================================================
- Custom Post Type + Taxonomy for Products
+ * STEP 1: Custom Post Type + Taxonomy for Products
  * ============================================================
  */
 
@@ -312,7 +334,6 @@ add_action( 'init', 'pds_register_product_cpt' );
 
 /**
  * Add to functions.php (or a plugin). Registers ONE global options page:
- * "PDS Swatch Library". Fill swatch photos here ONCE, across all products.
  */
 if ( function_exists('acf_add_options_page') ) {
     acf_add_options_page([
@@ -404,14 +425,10 @@ add_filter('fluentform/rendering_field_data_input_checkbox', function ($field) {
 
 /**
  * ============================================================
-	 Output full product data as JS for rich card rendering
+ * STEP 3: Output full product data as JS for rich card rendering
+ * ============================================================
  */
 add_action('wp_footer', function () {
-
-    // Only needed on the quote page (checkbox rich-card rendering) — skip everywhere else
-    if ( ! is_page_template( 'page-quote.php' ) ) {
-        return;
-    }
 
     $posts = get_posts(array(
         'post_type'      => 'product',
@@ -474,21 +491,20 @@ add_action('wp_footer', function () {
 
 /**
  * ============================================================
- how product titles instead of product IDs in email
- * notifications 
+ * STEP 4: Email notifications mein product IDs ki jagah titles
  * ============================================================
  */
 add_filter('fluentform/email_body', 'pds_replace_product_ids_with_titles', 10, 4);
 
 function pds_replace_product_ids_with_titles($emailBody, $notification, $submittedData, $form) {
 
-    // Only run for Form ID 5 (quote form)
+    // Sirf Form ID 5 (quote form) ke liye chalao
     $target_form_id = 5;
     if ($form->id != $target_form_id) {
         return $emailBody;
     }
 
-    // Same field names used in STEP 2's $category_map
+    // Wahi field names jo STEP 2 ke $category_map mein use ho rahe hain
     $product_field_names = array(
         'expanders_products',
         'cabins_pods_products',
@@ -499,34 +515,34 @@ function pds_replace_product_ids_with_titles($emailBody, $notification, $submitt
 
     foreach ($product_field_names as $product_field_name) {
 
-        // If nothing submitted in this field, check next field
+        // Agar is field mein kuch submit hi nahi hua, agla field check karo
         if (empty($submittedData[$product_field_name])) {
             continue;
         }
 
         $selected_ids = $submittedData[$product_field_name];
 
-        // Fluent Forms sometimes gives an array, sometimes a comma-separated string —
-        // handle both cases
+        // Fluent Forms kabhi array deta hai, kabhi comma-separated string —
+        // dono cases handle kar lete hain
         if (!is_array($selected_ids)) {
             $selected_ids = array_map('trim', explode(',', $selected_ids));
         }
 
-        // This is the exact string currently shown inside the email body
-        // (e.g. "333, 332") — find and replace this
+        // Ye wo exact string hai jo abhi email body ke andar dikh rahi hogi
+        // (e.g. "333, 332") — isi ko dhoondh ke replace karenge
         $raw_ids_as_shown = implode(', ', $selected_ids);
 
-        // Get the product title for each ID
+        // Har ID ka product title nikaalo
         $product_titles = array();
         foreach ($selected_ids as $product_id) {
             $title = get_the_title($product_id);
-            // if post is deleted or title not found, show ID instead
+            // agar post delete ho chuka ho ya title na mile, ID hi dikha do
             $product_titles[] = $title ? $title : $product_id;
         }
         $titles_as_string = implode(', ', $product_titles);
 
-        // Replace raw ID list with product names inside the email body
-        // (including inside the all_data table)
+        // Email body ke andar (all_data table ke andar bhi) raw ID list ko
+        // product names se replace kar do
         $emailBody = str_replace($raw_ids_as_shown, $titles_as_string, $emailBody);
     }
 
@@ -536,7 +552,6 @@ function pds_replace_product_ids_with_titles($emailBody, $notification, $submitt
 
 /**
  * Route single `product` CPT posts to a category-specific template file
- * based on their `product_category` taxonomy term.
  */
 add_filter( 'single_template', 'pds_product_single_template' );
 function pds_product_single_template( $template ) {
